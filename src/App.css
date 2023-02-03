@@ -1,16 +1,11 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 30px;
 }
 
 .App-header {
@@ -28,11 +23,174 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.conteiner {
+  width: 80%;
+  height: 80vh auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  background-color: #282c34;
+  border-radius: 8px;
+  box-shadow: 0 0 0 2px rgba(253, 232, 189, 0.295);
+}
+
+.conteiner .form {
+  width: 98%;
+  height: 50vh;
+}
+
+.conteiner .form .content-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ 
+}
+
+.conteiner .form .content-form .inputs  {
+  width: 100%;
+  margin: 0.9em 0;
+  position: relative;
+}
+.conteiner .form .content-form .inputs input {
+  width: 80%;
+  padding: 0.8em;
+  background: #282c34;
+  border: 1px solid #0e1013;
+  border-radius: 8px;
+  outline: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border: 1px solid #434a55;
+}
+
+.conteiner .form .content-form .inputs span {
+  position: absolute;
+  z-index: 2;
+  top: 0.6em;
+  left: 2.5em;
+  color: rgb(226, 226, 226);
+}
+.conteiner .form .content-form .inputs input:focus,
+.conteiner .form .content-form .inputs input:valid {
+  border: 1px solid #61dafb;
+}
+
+.conteiner .form .content-form .inputs input:focus  ~ span,
+.conteiner .form .content-form .inputs input:valid ~ span {
+  transform: translateY(-15px) translateX(12px);
+  font-size: 0.7em;
+  background: #282c34;
+  padding: 1px 6px;
+  border-radius: 4px;
+  border-right: 2px solid #61dafb;
+  border-left: 2px solid #61dafb;
+}
+
+.conteiner .form .content-form button {
+  width: 80%;
+  display: block;
+  padding: 9px;
+  background: #495566;
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  margin-top: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 600;
+  box-shadow: 2px 2px 1px 1px #cccccc69;
+}  
+
+.conteiner .form .content-form button:hover {
+  cursor: pointer;
+  background: #434a55;
+  
+}
+
+.conteiner .form .content-form button:active {
+  box-shadow: 0px 0px 0px 0px #cccccc69;
+}
+
+.list .todo {
+  width: 8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 30px;
+  padding: 10px;
+  border: 1px solid #495566;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.list .todo h3 {
+  margin-bottom: 0;
+}
+.list .todo p {
+  margin-bottom: 1.5em;
+  text-align: left;
+  font-style: italic;
+  font-size: .9em;
+}
+
+.list .todo .actions svg{
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 1.2em;
+  margin-bottom: .5em;
+  transition: .5s;
+}
+
+.list .todo .actions svg:hover{
+  color: rgb(248, 131, 131);
+}
+
+.list .todo .todo-done {
+  text-decoration: line-through;
+  color: rgb(248, 131, 131);
+}
+
+.looding {
+  position: absolute;
+  top: 50%;
+  right: 30%;
+  color: #0e1013;
+  width: 200px;
+  padding: 10px;
+  background-color: rgb(248, 131, 131);
+  border-radius: 4px;
+}
+
+.looding::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border: 2px dotted #0e1013;
+  border-radius: 50%;
+  position: absolute;
+  top: .6em;
+  right: 2.3em;
+  z-index: 9999;
+
+  animation: looding 4s  linear infinite;
+  animation: name duration timing-function delay iteration-count direction fill-mode;
+}
+
+@keyframes looding {
+  0% {
+    transform: rotate(0);
   }
-  to {
+
+  100% {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 1360px){
+  .conteiner {
+    width: 400px;
   }
 }
